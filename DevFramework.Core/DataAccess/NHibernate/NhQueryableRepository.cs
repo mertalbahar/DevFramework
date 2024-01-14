@@ -11,6 +11,7 @@ namespace DevFramework.Core.DataAccess.NHibernate
         where T : class, IEntity, new()
     {
         private NHibernateHelper _nHibernateHelper;
+
         private IQueryable<T> _entities;
 
         public NhQueryableRepository(NHibernateHelper nHibernateHelper)
@@ -20,12 +21,6 @@ namespace DevFramework.Core.DataAccess.NHibernate
 
         public IQueryable<T> Table => this.Entities;
 
-        public virtual IQueryable<T> Entities
-        {
-            get
-            {
-                return _entities ?? (_entities = _nHibernateHelper.OpenSession().Query<T>());
-            }
-        }
+        public virtual IQueryable<T> Entities { get { return _entities ?? (_entities = _nHibernateHelper.OpenSession().Query<T>()); } }
     }
 }

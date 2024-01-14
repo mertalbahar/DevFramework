@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{64EF67A9-78FA-479E-8955-1C1B939D0C15}</ProjectGuid>
+    <ProjectGuid>{5C56C59B-F3D1-43E9-A43F-3EE08F9C929D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DevFramework.Northwind.Business.Tests</RootNamespace>
