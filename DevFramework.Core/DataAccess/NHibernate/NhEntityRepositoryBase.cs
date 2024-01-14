@@ -5,14 +5,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using NHibernate.Linq;
 
 namespace DevFramework.Core.DataAccess.NHibernate
 {
     public class NhEntityRepositoryBase<TEntity> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
     {
-        private NHibernateHelper _nHibernateHelper;
+        NHibernateHelper _nHibernateHelper;
 
         public NhEntityRepositoryBase(NHibernateHelper nHibernateHelper)
         {
@@ -25,7 +24,7 @@ namespace DevFramework.Core.DataAccess.NHibernate
             {
                 session.Save(entity);
                 return entity;
-            };
+            }
         }
 
         public void Delete(TEntity entity)
@@ -33,7 +32,7 @@ namespace DevFramework.Core.DataAccess.NHibernate
             using (var session = _nHibernateHelper.OpenSession())
             {
                 session.Delete(entity);
-            };
+            }
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
@@ -41,7 +40,7 @@ namespace DevFramework.Core.DataAccess.NHibernate
             using (var session = _nHibernateHelper.OpenSession())
             {
                 return session.Query<TEntity>().SingleOrDefault(filter);
-            };
+            }
         }
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
@@ -51,7 +50,7 @@ namespace DevFramework.Core.DataAccess.NHibernate
                 return filter == null
                     ? session.Query<TEntity>().ToList()
                     : session.Query<TEntity>().Where(filter).ToList();
-            };
+            }
         }
 
         public TEntity Update(TEntity entity)
@@ -60,7 +59,7 @@ namespace DevFramework.Core.DataAccess.NHibernate
             {
                 session.Update(entity);
                 return entity;
-            };
+            }
         }
     }
 }
