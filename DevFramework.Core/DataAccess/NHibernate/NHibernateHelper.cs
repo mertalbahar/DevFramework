@@ -12,7 +12,7 @@ namespace DevFramework.Core.DataAccess.NHibernate
         private static ISessionFactory _sessionFactory;
 
         public virtual ISessionFactory SessionFactory
-        { 
+        {
             get { return _sessionFactory ?? (_sessionFactory = InitializeFactory()); }
         }
 
@@ -20,7 +20,7 @@ namespace DevFramework.Core.DataAccess.NHibernate
 
         public virtual ISession OpenSession()
         {
-            return SessionFactory.OpenSession();
+            return _sessionFactory.OpenSession();
         }
 
         public void Dispose()

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DevFramework.Northwind.DataAccess.Concrete.EntityFramework
 {
-    public class NorthwindContext :DbContext
+    public class NorthwindContext : DbContext
     {
         public NorthwindContext()
         {

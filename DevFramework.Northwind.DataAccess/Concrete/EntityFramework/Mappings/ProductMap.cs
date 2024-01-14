@@ -10,12 +10,10 @@ namespace DevFramework.Northwind.DataAccess.Concrete.EntityFramework.Mappings
 {
     public class ProductMap : EntityTypeConfiguration<Product>
     {
-        // If you have DbFirst coding or you have db coded by another language,
-        // you have to connect your code with mapping
         public ProductMap()
         {
             ToTable(@"Products", @"dbo");
-            HasKey(x =>  x.ProductId);
+            HasKey(x => x.ProductId);
 
             Property(x => x.ProductId).HasColumnName("ProductID");
             Property(x => x.CategoryId).HasColumnName("CategoryID");
