@@ -26,5 +26,25 @@ namespace DevFramework.Northwind.DataAccess.Tests.EntityFrameworkTests
 
             Assert.AreEqual(4, result.Count);
         }
+
+        [TestMethod]
+        public void Get_all_returns_all_categories()
+        {
+            EfCategoryDal categoryDal = new EfCategoryDal();
+
+            var result = categoryDal.GetList();
+
+            Assert.AreEqual(8, result.Count);
+        }
+
+        [TestMethod]
+        public void Get_all_with_parameter_returns_filtered_categories()
+        {
+            EfCategoryDal categoryDal = new EfCategoryDal();
+
+            var result = categoryDal.GetList(p => p.CategoryName.Contains("ea"));
+
+            Assert.AreEqual(3, result.Count);
+        }
     }
 }
