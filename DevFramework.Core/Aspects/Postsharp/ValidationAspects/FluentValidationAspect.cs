@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevFramework.Core.Aspects.Postsharp
+namespace DevFramework.Core.Aspects.Postsharp.ValidationAspects
 {
     [Serializable]
     public class FluentValidationAspect : OnMethodBoundaryAspect
@@ -25,7 +25,7 @@ namespace DevFramework.Core.Aspects.Postsharp
             var entityType = _validatorType.BaseType.GetGenericArguments()[0];
             var entities = args.Arguments.Where(t => t.GetType() == entityType);
 
-            foreach ( var entity in entities )
+            foreach (var entity in entities)
             {
                 ValidatorTool.FluentValidate(validator, entity);
             }
